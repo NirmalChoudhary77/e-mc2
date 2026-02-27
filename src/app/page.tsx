@@ -1,6 +1,7 @@
 "use client";
 
 import { Hero3D } from "@/components/home/Hero3D";
+import ResearchPillars from "@/components/ResearchPillars";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
@@ -50,6 +51,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* 
+        RESEARCH PILLARS (Core areas right below hero)
+      */}
+      <ResearchPillars />
 
       {/* 
         ABOUT SECTION 
