@@ -1,26 +1,63 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-vjti-red: #9d2235;
+  /* VJTI Main Maroon/Red */
+  --color-vjti-accent: #cfb53b;
+  /* VJTI Warm Gold Accent Alternative #ae152d */
+  --color-cyan: #a0f1ea;
+  /* Secondary Accent */
+  --color-clean-white: #ffffff;
+  --color-off-white: #f8f9fa;
+  /* Very light grey for slight contrast */
+  --color-dark: #000000;
+  /* Pitch black for stark contrast text */
+
+  /* MIT relies heavily on strong sans-serif fonts */
+  --font-serif: var(--font-inter), sans-serif;
+  /* Force sans for MIT look */
+  --font-sans: var(--font-inter), sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  body {
+    background-color: var(--color-clean-white);
+    color: var(--color-dark);
+    font-family: var(--font-sans);
+    letter-spacing: -0.01em;
+    /* Tighter tracking for modern look */
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--color-vjti-red);
+    font-weight: 700;
+    letter-spacing: -0.03em;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+
+  /* Subtle geometric circle pattern inspired by MIT CSE background */
+  .bg-dot-matrix {
+    background-color: transparent;
+    background-image: radial-gradient(rgba(157, 34, 53, 0.08) 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+  }
+
+  .bg-dot-matrix-white {
+    background-color: transparent;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+  }
+
+  /* MIT CSE heavily uses soft shadows on highly rounded elements */
+  .shadow-cse {
+    box-shadow: 0 20px 40px -10px rgba(157, 34, 53, 0.15);
+    /* VJTI Red shadow */
+  }
 }
