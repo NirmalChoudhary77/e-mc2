@@ -59,53 +59,37 @@ export default function Home() {
         <div className="absolute top-0 left-0 w-full h-px bg-white/10"></div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 col-span-2">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 col-span-2 items-center">
 
-            {/* Left: Huge typography + NEW IMAGE CONTAINER */}
-            <div className="flex flex-col gap-12">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight max-w-xl">
-                Igniting minds and inspiring innovation in <span className="text-vjti-accent">Electrical Engineering.</span>
-              </h2>
-
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8 }}
-                className="relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/10 group"
-              >
+            {/* Left: Clean Image placement */}
+            <div className="w-full">
+              <div className="relative w-full aspect-video md:aspect-[4/3] rounded-sm overflow-hidden border border-white/20 shadow-2xl">
                 <Image
-                  src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?q=80&w=1600&auto=format&fit=crop"
-                  alt="VJTI E-MC2 Lab Innovation"
+                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1600&auto=format&fit=crop"
+                  alt="VJTI E-MC2 Lab Facilities"
                   fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-1000 mix-blend-overlay opacity-80"
+                  className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-vjti-red to-transparent opacity-80"></div>
-
-                <div className="absolute bottom-6 left-6 right-6 flex items-center gap-4">
-                  <div className="w-3 h-3 bg-vjti-accent rounded-full animate-pulse shadow-[0_0_15px_rgba(255,184,28,0.5)]"></div>
-                  <p className="text-sm font-bold tracking-widest uppercase text-white/90">Pioneering Autonomous Systems</p>
-                </div>
-              </motion.div>
+              </div>
             </div>
 
             {/* Right: Descriptive text and callouts */}
-            <div className="flex flex-col justify-end space-y-10">
-              <p className="text-xl lg:text-2xl text-white/80 leading-relaxed font-light">
+            <div className="flex flex-col space-y-12">
+              <p className="text-xl lg:text-2xl text-white/90 leading-relaxed font-light">
                 The E-MC² Lab was inaugurated in the presence of Dr. Sachin Kore, Director, VJTI. We heartily acknowledge the support of Savex Technologies Pvt. Ltd, represented by Shri. Anil Jagasia, whose generous contribution through the VJTI Alumni Association makes this cutting-edge research possible.
               </p>
 
-              <div className="space-y-6 pt-4 border-t border-white/20">
-                <Link href="/publications" className="group flex justify-between items-center w-full">
-                  <span className="text-2xl md:text-3xl font-bold tracking-tight group-hover:text-vjti-accent transition-colors">Latest Publications</span>
-                  <div className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white transition-all shadow-sm">
-                    <ArrowUpRight className="w-6 h-6 text-white group-hover:text-vjti-red" />
+              <div className="space-y-0 pt-8 border-t border-white/20">
+                <Link href="/publications" className="group flex justify-between items-center w-full py-6 border-b border-white/20">
+                  <span className="text-2xl md:text-3xl font-bold tracking-tight text-white transition-colors">Latest Publications</span>
+                  <div className="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center transition-all group-hover:bg-white group-hover:text-vjti-red">
+                    <ArrowUpRight className="w-5 h-5 text-white group-hover:text-vjti-red" />
                   </div>
                 </Link>
-                <Link href="/people" className="group flex justify-between items-center w-full">
-                  <span className="text-2xl md:text-3xl font-bold tracking-tight group-hover:text-vjti-accent transition-colors">Meet the Team</span>
-                  <div className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white transition-all shadow-sm">
-                    <ArrowUpRight className="w-6 h-6 text-white group-hover:text-vjti-red" />
+                <Link href="/people" className="group flex justify-between items-center w-full py-6">
+                  <span className="text-2xl md:text-3xl font-bold tracking-tight text-white transition-colors">Meet the Team</span>
+                  <div className="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center transition-all group-hover:bg-white group-hover:text-vjti-red">
+                    <ArrowUpRight className="w-5 h-5 text-white group-hover:text-vjti-red" />
                   </div>
                 </Link>
               </div>
@@ -117,34 +101,77 @@ export default function Home() {
       </section>
 
       {/* 
-        RESEARCH IMPACT & STATISTICS (Dark Mode Redesign)
+        RESEARCH IMPACT & STATISTICS (Cards with Images)
       */}
-      <section className="py-32 bg-zinc-950 relative overflow-hidden">
-        <div className="absolute inset-0 bg-dot-matrix opacity-5 pointer-events-none"></div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-          <div className="mb-20 text-center md:text-left">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight mb-6">Research <span className="text-vjti-red">Impact</span></h2>
-            <p className="text-xl text-white/60 max-w-2xl font-medium mx-auto md:mx-0">Quantifiable metrics demonstrating our commitment to advancing the frontiers of electrical engineering across academia and industry.</p>
+      <section className="py-24 bg-gray-50 relative border-t border-black/10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="mb-16 border-b-4 border-vjti-red pb-6 inline-block">
+            <h2 className="text-4xl md:text-5xl font-black text-vjti-red tracking-tight">Research Impact</h2>
+            <p className="mt-4 text-xl text-gray-700 font-medium max-w-2xl">
+              Driving innovation through rigorous academic pursuit, industry collaboration, and real-world technological solutions.
+            </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+          <div className="flex flex-col gap-16">
             {[
-              { label: "Publications", value: "50+" },
-              { label: "Industry Partners", value: "12+" },
-              { label: "Patents Filed", value: "5+" },
-              { label: "Research Scholars", value: "25+" }
+              {
+                label: "Publications",
+                value: "50+",
+                desc: "Our researchers consistently contribute to high-impact peer-reviewed journals and international conference proceedings, disseminating knowledge and driving discourse in advanced engineering fields.",
+                image: "https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=1600&auto=format&fit=crop"
+              },
+              {
+                label: "Industry Partners",
+                value: "12+",
+                desc: "We maintain active, synergistic collaborations with leading technology corporations, research organizations, and government bodies to ensure our work translates into practical, scalable solutions.",
+                image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1600&auto=format&fit=crop"
+              },
+              {
+                label: "Patents Filed",
+                value: "5+",
+                desc: "Protecting our intellectual property is paramount. We have successfully filed multiple patents for innovative technological solutions, securing the rights to our groundbreaking discoveries.",
+                image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1600&auto=format&fit=crop"
+              },
+              {
+                label: "Research Scholars",
+                value: "25+",
+                desc: "A dedicated cohort of Master's and Ph.D. candidates form the backbone of our laboratory, driving cutting-edge exploration and pushing the boundaries of what's possible in their respective domains.",
+                image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=1600&auto=format&fit=crop"
+              }
             ].map((stat, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-zinc-900 rounded-[2rem] p-6 md:p-10 hover:-translate-y-2 transition-transform duration-500 border border-white/5 shadow-2xl relative overflow-hidden group"
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+                className="group relative bg-white rounded-[2rem] overflow-hidden shadow-xl border border-gray-100 flex flex-col md:flex-row min-h-[400px]"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-vjti-red rounded-full filter blur-[100px] opacity-10 group-hover:opacity-30 transition-opacity duration-700"></div>
-                <div className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-4 tracking-tighter group-hover:scale-110 group-hover:text-vjti-red transition-all origin-left drop-shadow-lg">{stat.value}</div>
-                <div className="text-sm md:text-base font-bold text-white/50 uppercase tracking-widest">{stat.label}</div>
+                {/* Image Section - Alternating sides on desktop */}
+                <div className={`relative w-full md:w-1/2 h-80 md:h-auto overflow-hidden ${i % 2 !== 0 ? 'md:order-last' : ''}`}>
+                  <Image
+                    src={stat.image}
+                    alt={stat.label}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
+                  />
+                  {/* Subtle overlay */}
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-500"></div>
+                </div>
+
+                {/* Content Section */}
+                <div className="w-full md:w-1/2 p-10 md:p-16 flex flex-col justify-center relative bg-white">
+
+                  <div className="flex flex-col mb-8">
+                    <span className="text-6xl md:text-8xl font-black text-vjti-red tracking-tighter leading-none mb-4">{stat.value}</span>
+                    <h3 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">{stat.label}</h3>
+                  </div>
+
+                  <p className="text-lg md:text-xl text-gray-600 font-medium leading-relaxed max-w-lg mb-8">
+                    {stat.desc}
+                  </p>
+
+                </div>
               </motion.div>
             ))}
           </div>
@@ -152,40 +179,71 @@ export default function Home() {
       </section>
 
       {/* 
-        ACADEMIC PROGRAMS OFFERED (Interactive Lift & Glow)
+        ACADEMIC PROGRAMS OFFERED (Interactive Expanding Accordions)
       */}
-      <section className="py-32 bg-[#F9F9F9] relative border-y border-black/5">
+      <section className="py-32 bg-clean-white relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
             <div className="max-w-3xl">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-vjti-red tracking-tight mb-6">Academic Programs</h2>
-              <p className="text-xl text-vjti-red/70 font-medium leading-relaxed">Join our rigorous academic environment tailored for aspiring researchers, doctoral candidates, and innovative engineers at every level.</p>
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-vjti-red tracking-tight leading-[0.9] mb-6">Explore<br />Our Programs.</h2>
             </div>
-            <Link href="/careers" className="shrink-0 inline-flex items-center justify-center px-8 py-4 bg-white border-2 border-vjti-red/20 text-vjti-red rounded-full font-bold text-sm tracking-widest uppercase hover:border-vjti-red hover:bg-vjti-red hover:text-white transition-all shadow-sm">
-              View Openings
+            <Link href="/careers" className="relative inline-flex group items-center justify-center px-8 py-4 cursor-pointer border-none bg-black text-white rounded-full overflow-hidden">
+              <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-vjti-accent rounded-full group-hover:w-56 group-hover:h-56"></span>
+              <span className="relative font-bold text-sm tracking-widest uppercase transition-colors duration-300 group-hover:text-black flex items-center gap-2">
+                Join the Lab <ArrowRight className="w-4 h-4" />
+              </span>
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="flex flex-col gap-4">
             {[
-              { title: "Post-Doctoral", desc: "Advanced fellowships focusing on autonomous swarm intelligence, secure grids, and hardware integration." },
-              { title: "Ph.D. Research", desc: "Rigorous doctoral programs in robust control, quantum-inspired algorithms, and power electronics." },
-              { title: "M.Tech Projects", desc: "Master's level thesis projects utilizing our industry-standard multi-DOF robotic frameworks." },
-              { title: "B.Tech Internships", desc: "Capstone internships for undergraduate system integrations, sensor fusion, and CAD module building." }
+              { title: "Post-Doctoral Fellowships", desc: "Advanced research positions focusing on autonomous swarm intelligence, secure grids, and highly complex hardware integration methodologies. Candidates will lead specialized pods.", number: "01" },
+              { title: "Ph.D. Research Scholar", desc: "Rigorous doctoral programs specializing in robust control theories, quantum-inspired algorithms, and cutting-edge power electronics for sustainable energy.", number: "02" },
+              { title: "M.Tech Thesis Projects", desc: "Master's level thesis projects directly utilizing our industry-standard multi-DOF robotic frameworks and real-time computation grids.", number: "03" },
+              { title: "B.Tech Capstone Internships", desc: "Intensive capstone internships for undergraduate system integrations, complex sensor fusion, and foundational CAD module building.", number: "04" }
             ].map((prog, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group bg-white rounded-[2.5rem] p-8 md:p-10 shadow-sm hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 border border-black/5 flex flex-col h-full relative overflow-hidden"
+                whileHover="hover"
+                className="group w-full bg-[#111] rounded-3xl p-8 md:p-10 cursor-pointer overflow-hidden relative"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-vjti-accent/20 rounded-full filter blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-                <h3 className="text-3xl font-black text-vjti-red mb-6 group-hover:text-vjti-accent transition-colors tracking-tight leading-tight">{prog.title}</h3>
-                <p className="text-vjti-red/70 font-medium leading-relaxed flex-grow text-lg">{prog.desc}</p>
-                <div className="w-12 h-12 mt-10 rounded-full bg-vjti-red/5 flex items-center justify-center group-hover:bg-vjti-red transition-all duration-300 text-vjti-red group-hover:text-white shadow-sm group-hover:shadow-md group-hover:scale-110 cursor-pointer">
-                  <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                {/* Hover Reveal Background */}
+                <motion.div
+                  variants={{ hover: { height: "100%", opacity: 1 } }}
+                  initial={{ height: "0%", opacity: 0 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="absolute bottom-0 left-0 w-full bg-vjti-red z-0"
+                ></motion.div>
+
+                <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
+                  <div className="text-4xl md:text-5xl font-black text-white/20 group-hover:text-white/40 transition-colors">
+                    {prog.number}
+                  </div>
+
+                  <div className="flex-grow">
+                    <h3 className="text-3xl font-bold text-white mb-0 group-hover:mb-4 transition-all duration-300 tracking-tight">{prog.title}</h3>
+
+                    <motion.div
+                      variants={{ hover: { height: "auto", opacity: 1, marginTop: "1rem" } }}
+                      initial={{ height: 0, opacity: 0, marginTop: 0 }}
+                      transition={{ duration: 0.4 }}
+                      className="overflow-hidden"
+                    >
+                      <p className="text-white/90 font-medium leading-relaxed text-lg max-w-4xl">
+                        {prog.desc}
+                      </p>
+                    </motion.div>
+                  </div>
+
+                  <div className="shrink-0 mt-6 md:mt-0">
+                    <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white transition-colors duration-300 group-hover:border-white">
+                      <ArrowRight className="w-8 h-8 text-white group-hover:text-vjti-red transition-colors group-hover:rotate-[-45deg] duration-300" />
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             ))}
